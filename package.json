@@ -1,0 +1,21 @@
+{
+  "name": "purescript-workshop",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "webpack --progress --colors --bail",
+    "build:watch": "webpack --progress --colors --watch --debug",
+    "server":"webpack-dev-server",
+    "run": "node bundle.js",
+    "clean": "rm -rf bower_components && rm -rf bundle.js && rm -rf node_modules && rm -rf output"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "node-libs-browser": "^0.5.2",
+    "purescript-webpack-plugin": "^0.1.1",
+    "purs-loader": "^0.5.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-livereload-plugin": "^0.5.2"
+  }
+}
