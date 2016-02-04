@@ -41,6 +41,6 @@ You can probably search for a function that you don't know where it is from or w
 
 ## Tutorial
 
-If you have never played with purescript before, check out: [basics.md|Purescript Basics]
+If you have never played with purescript before, check out: [[basics.md|Purescript Basics]]
 
-If you are pretty comfortable, check out: [thermite.md|Thermite React]
+If you are pretty comfortable, check out: [[thermite.md|Thermite React]]
