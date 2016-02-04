@@ -21,9 +21,9 @@ type State = { number :: Int }
 
 -- FYI : type Render state props action = (action -> EventHandler) -> props -> state -> Array ReactElement -> Array ReactElement
 render :: T.Render State _ _
-render _ _ state _ = 
+render _ _ _ _ = 
   [ R.h1' [ R.text "Rendering State" ]
-  , R.p'  [ R.text "The answer is " , R.text $ show state.number ]
+  , R.p'  [ R.text "The answer is " , R.text "FIXME" ]
   ]
 
 -- FYI: newtype Spec eff state props action
@@ -33,6 +33,7 @@ spec = T.simpleSpec T.defaultPerformAction render
 -- | The main method creates the task list component, and renders it to the document body.
 main :: forall eff. DOM.Element -> Eff (dom :: DOM.DOM, console :: CONSOLE | eff) Unit
 main container = do
+  -- We create the react class passing in the initial state here.
   let component = T.createClass spec { number: 42  }
   -- The properties only come into it outside of thermite. The properties are here and 
   -- typesafe but it means that we're bundling everything into state instead. Is this

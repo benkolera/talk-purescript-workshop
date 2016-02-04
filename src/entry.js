@@ -8,6 +8,7 @@ require("./ThermiteEx/State.purs");
 require("./ThermiteEx/Actions.purs");
 require("./ThermiteEx/Components.purs");
 require("./ThermiteEx/Lists.purs");
+require("./ThermiteEx/Hax.purs");
 
 // Maybe this is because purs-loader could be better or maybe it's a limitation of webpack. Dunno.
 

@@ -4,6 +4,8 @@ If you haven't seen much of purescript before, you probably want to skim over th
 
 https://leanpub.com/purescript/read#leanpub-auto-functions-and-records
 
+https://leanpub.com/purescript/read#leanpub-auto-pattern-matching
+
 https://leanpub.com/purescript/read#leanpub-auto-the-eff-monad
 
 Which should be the minimum set of understanding that you'll need to wander through this stuff without
