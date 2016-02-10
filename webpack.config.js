@@ -12,7 +12,7 @@ var modulesDirectories = [
 ];
 
 var config
-  = { entry: './src/entry'
+  = { entry: './entry'
     , debug: "true"
     , output: 
       { path: __dirname
