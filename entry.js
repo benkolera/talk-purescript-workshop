@@ -3,7 +3,8 @@
 // Webpack when watching is smart enough to only watch files that are part of the build
 // process. But the files that are loaded as purescript deps don't get added to this list.
 // pulp server fixes this with a hack: https://github.com/bodil/pulp/blob/master/src/Pulp/Server.purs#L62
-require("./src/Basics/ModulesAndFunctions.purs");
+require("./src/BasicsEx/ModulesAndFunctions.purs");
+require("./src/BasicsEx/DataTypes.purs");
 require("./src/ThermiteEx/Intro.purs");
 require("./src/ThermiteEx/State.purs");
 require("./src/ThermiteEx/Actions.purs");

@@ -25,8 +25,12 @@ import ThermiteEx.Actions as ThermiteExActions
 import ThermiteEx.Components as ThermiteExComponents
 import ThermiteEx.Lists as ThermiteExLists
 
+import BasicsEx.ModulesAndFunctions as BasicsExModulesAndFunctions
+import BasicsEx.DataTypes as BasicsExDataTypes
+
 data ThermiteSubRoute = ThermiteIntro | ThermiteState | ThermiteActions | ThermiteComponents | ThermiteLists
-data Route = ThermiteRoute ThermiteSubRoute
+data BasicSubRoute = BasicModulesAndFunctions | BasicDataTypes
+data Route = ThermiteRoute ThermiteSubRoute | BasicRoute BasicSubRoute
 
 thermiteRouting :: R.Match ThermiteSubRoute
 thermiteRouting =
@@ -36,9 +40,15 @@ thermiteRouting =
   <|> lit "components" *> pure ThermiteComponents
   <|> lit "lists"      *> pure ThermiteLists
 
+basicRouting :: R.Match BasicSubRoute
+basicRouting = 
+  lit "modules_and_functions" *> pure BasicModulesAndFunctions
+  <|> lit "data_types"            *> pure BasicDataTypes
+
 routing :: R.Match Route
 routing = 
   ThermiteRoute <$> (lit "thermite" *> thermiteRouting)
+  <|> BasicRoute <$> (lit "basics" *> basicRouting)
   <|> pure (ThermiteRoute ThermiteIntro)
 
 handleThermiteRoutes :: DOM.Element -> ThermiteSubRoute -> Eff ( console :: CONSOLE, dom :: DOM ) Unit
@@ -48,8 +58,14 @@ handleThermiteRoutes e ThermiteActions    = ThermiteExActions.main e
 handleThermiteRoutes e ThermiteComponents = ThermiteExComponents.main e
 handleThermiteRoutes e ThermiteLists      = ThermiteExLists.main e
 
+
+handleBasicRoutes :: DOM.Element -> BasicSubRoute -> Eff ( console :: CONSOLE, dom :: DOM ) Unit
+handleBasicRoutes e BasicModulesAndFunctions = BasicsExModulesAndFunctions.main e
+handleBasicRoutes e BasicDataTypes           = BasicsExDataTypes.main e
+
 handleRoutes :: DOM.Element -> Maybe Route -> Route -> Eff ( console :: CONSOLE, dom :: DOM ) Unit
 handleRoutes e _ (ThermiteRoute tr) = handleThermiteRoutes e tr
+handleRoutes e _ (BasicRoute tr) = handleBasicRoutes e tr
 
 main :: Eff (console :: CONSOLE, dom :: DOM) Unit
 main = do

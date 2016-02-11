@@ -84,9 +84,48 @@ just JS (and fairly readable JS at that).
 
 ## Modules, Functions and Reading Types
 
+Make sure you are viewing src/BasicsEx/ModulesAndFunctions.purs!
+
+This file is showing you how the basic module structure, imports and function definition work.
+
+It's important to note that if you see a type signature like Int -> Int then it can't be doing
+any side effects like mutating variables, changing the DOM or making decisions based on global
+state. It must always return a value only based on the inputs you give it and the only thing it
+can do is output a variable of it's output type. 
+
+This is a very powerful thing to be able to have in your code, as being able to assert this means 
+that you can easily reason about what a function does by it's types alone rather than having to
+keep track of all the state it can mangle in your head. This works wonders for being able to 
+safely compose and refactor code without having to load too much context into your head, which is
+a very important thing when you're writing complicated code like text editors where unbridled 
+mutating of the dom and state can make things very tricky to compose things without getting unexpected
+bugs!
+
+If you navigate to http://localhost:1337/#basics/modules_and_functions and look in the console,
+you should see "Gimme five! 5". We're purposefully avoiding the DOM for the moment to get the
+basics down pat!
+
 ## Data Types, Records and Pattern Matching
 
+Please have src/BasicsEx/DataTypes.purs open and be looking at http://localhost:1337/#basics/data_types with 
+the JS console open.
+
+In this file we're going to figure out how to write our own data constructors and how to use them. There
+are two main ways that we create a data type:
+
+- A record (product type) with fields in it, like a normal JS object.
+- A Sum Type, which is a type that has multiple different ways to construct it. Think of this like subtyping, but cooler.
+
+There are two key bits of jargon you should know:
+- A type is the thing that we use in our signatures which gives us our information about what the value is.
+- A constructor is a way to construct a value of that type in our code. It is not a type itself. Sum types are just types with multiple constructors and aren't really a special case at all!
+
+For both product and sum types, we can pattern match on them to extract data, even conditionally 
+based on which constructor the value was constructed with.
+
 ## Effects
+
+## Lists & Mapping them
 
 ## Lenses
 
